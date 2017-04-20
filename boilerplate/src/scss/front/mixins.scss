@@ -1,0 +1,130 @@
+//================================================================
+//	MEDIA QUERIES
+//
+//	"@media #{$mqWide} {" renders to "@media screen and (min-width: 1300px) {"
+//================================================================
+$mqMax: 'screen and (min-width: 1680px)';
+$mqWide: 'screen and (min-width: 1280px)';
+$mqTablet: 'screen and (max-width: 979px)';
+$mqMobile: 'screen and (max-width: 760px)';
+$mqMobileSmall: 'screen and (max-width: 580px)';
+
+//================================================================
+//	VARIABLES
+//================================================================
+// Fonts
+
+// Gutters
+$gutterWide: 30px;
+$gutter: 18px;
+
+// Dimensions
+
+// Misc
+$speed: 0.2s;
+$easing: ease-out;
+
+//================================================================
+//	COLORS / GRADIENTS
+//================================================================
+$white: #fff;
+$black: #000;
+$blackTransparent: rgba(0, 0, 0, 0.9);
+$textSelection: #bfdef0;
+$blue: #007dc5;
+$blueTransparent: rgba(0, 125, 197, 0.9);
+$orange: #ef4123;
+$grey: #8a8c8f;
+$lightGrey: #e6e7e8;
+$darkGrey: #231f20;
+$red: #ee3124;
+
+//================================================================
+//	CSS3 PREFIX
+//================================================================
+@mixin transition($args) {
+	-o-transition: $args;
+	-ms-transition: $args;
+	-moz-transition: $args;
+	-webkit-transition: $args;
+	transition: $args;
+}
+@mixin transition-all {
+	-o-transition: all $speed $easing;
+	-ms-transition: all $speed $easing;
+	-moz-transition: all $speed $easing;
+	-webkit-transition: all $speed $easing;
+	transition: all $speed $easing;
+}
+@mixin transform($args) {
+	-o-transform: $args;
+	-ms-transform: $args;
+	-moz-transform: $args;
+	-webkit-transform: $args;
+	transform: $args;
+}
+@mixin box-sizing($args) {
+	-moz-box-sizing: $args;
+	-webkit-box-sizing: $args;
+	box-sizing: $args;
+}
+@mixin border-radius($args) {
+	-webkit-border-radius: $args;
+	-moz-border-radius: $args;
+	border-radius: $args;
+}
+@mixin bg-size($args) {
+	-webkit-background-size: $args;
+	background-size: $args;
+}
+@mixin opacity($opacity) {
+	opacity: $opacity/100;
+	filter: alpha(opacity=$opacity);
+}
+
+//================================================================
+//	FLEXBOX
+//================================================================
+@mixin flexbox() {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: box;
+	display: flexbox;
+	display: flex;
+}
+@mixin flexbox-vertical() {
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+}
+@mixin align-items($align) {
+	-ms-flex-align: $align;
+	-webkit-align-items: $align;
+	-webkit-box-align: $align;
+	align-items: $align;
+}
+
+//================================================================
+//	MISC
+//================================================================
+
+//Aspect Ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
