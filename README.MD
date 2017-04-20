@@ -12,4 +12,5 @@ function svgicon( $icon, $render = true ) {
 	} else {
 		return $html;
 	}
-}```
+}
+```
