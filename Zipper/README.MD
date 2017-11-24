@@ -22,7 +22,7 @@ A simple function used to zip files on the server. Zip it!
 ?>
 ```
 
-## Download the Zip when created
+## Download the Zip when created (Ajax)
 ```
 $.ajax({
   type: "POST",
