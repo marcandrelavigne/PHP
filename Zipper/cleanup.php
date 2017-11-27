@@ -5,7 +5,7 @@
 	 * ---------------------------------
 	 *
 	 * Delete the Zip file created on the server after being downloaded by the user.
-   *
+   	 *
 	 */
 
 	$currentversion = $_POST['currentVersion'];
