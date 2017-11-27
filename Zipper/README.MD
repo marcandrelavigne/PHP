@@ -14,21 +14,32 @@ A simple function used to zip files on the server. Zip it!
 ?>
 ```
 
-## Deleting the file created on the server
-```
-<?php
-  ignore_user_abort(true);
-  unlink($zipFilename);
-?>
-```
-
-## Download the Zip when created (Ajax)
+## Download the Zip when created (With AJAX)
 ```
 $.ajax({
-  type: "POST",
-  url: "/path/to/file.php",
+	type: "POST",
+	url: "/path/to/file.php",
 	success: function () {
 		window.location.href= "filename.zip";
+	}
+});
+```
+
+## Deleting the file created on the server (With AJAX)
+To delete the files, you must implement a version system with your filenames (in the exemple below, I used a version number + a user ID). This will prevent any conflicts with users generating Zip files at the same time. 
+
+```
+var currentVersion = 1;
+var userID = 123;
+var fileType = 'flyer';
+
+$.ajax({
+	type: "POST",
+	url: "cleanup.php",
+	data: {
+		'fileType' : fileType,
+		'currentVersion' : currentVersion,
+		'userID' : userID
 	}
 });
 ```
