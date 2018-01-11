@@ -1,5 +1,5 @@
 # SVG Icons
-Use the SVGs in a SVG sprite by calling the function + the SVG ID (ex.: <?php svgicon( 'arrow-up' ); ?>)
+Use the SVGs in a SVG sprite by calling the function + the SVG ID (ex.: svgicon( 'arrow-up' ); )
 ```php
 function svgicon( $icon, $render = true ) {
 	$html  = '<svg class="svg-icon" role="presentation">';
